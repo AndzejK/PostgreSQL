@@ -25,3 +25,6 @@ ILIKE -- case INsensitive as oppossed to LIKE operator
 
 SELECT * FROM customer
 WHERE first_name ILIKE 'j%' AND last_name ILIKE 'e%'
+
+SELECT COUNT(*) FROM film
+WHERE rating='R' AND replacement_cost BETWEEN 5 AND 15
