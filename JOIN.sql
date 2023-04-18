@@ -19,6 +19,19 @@ ON payment.customer_id=customer.customer_id
 GROUP BY first_name,last_name,email,payment.customer_id -- However, in the header is unique across tbls then we write JUST column's name
 ORDER BY first_name
 
+SELECT first_name,last_name,district,email FROM customer 
+INNER JOIN address
+ON customer.address_id=address.address_id
+WHERE district='California'
+
+-- Multiple JOINS are possible too!
+SELECT title,first_name,last_name FROM film_actor
+INNER JOIN actor
+ON film_actor.actor_id=actor.actor_id 
+INNER JOIN film
+ON film_actor.film_id=film.film_id
+WHERE first_name='Nick' AND last_name='Wahlberg'
+
 /* 2. OUTER JOIN 
    2.1 FULL OUTER JOIN - it grabs EVERYTHING, meaning whether it present in both tbls or just one, if no record then is equel to NULL 
         if I can't find value matchig from Table_A then will be NULL AND 
@@ -68,4 +81,12 @@ ON inventory.film_id=film.film_id
 WHERE inventory.film_id IS null
 
 /* 2. OUTER JOIN 
-   2.3 RIGHT OUTER JOIN */
+   2.3 RIGHT OUTER JOIN - returns all the rows from the right table and the matching rows 
+                            from the left table. If there is no matching row in the left table, 
+                            the result will have null values for the columns from the left table. 
+                            In other words, RIGHT OUTER JOIN prioritizes the right table in the join
+   
+   
+   3. UNION - operator is used to combine the results of two or more SELECT statements into a single result set. 
+   
+   */
