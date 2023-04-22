@@ -19,3 +19,15 @@ RENAME TO new_info
 -- Rename a column's (header) name  
 ALTER TABLE new_info
 RENAME COLUMN person to people
+
+-- Alter constraints on the existing columns
+ALTER TABLE new_info
+ALTER COLUMN people DROP NOT NULL -- if want to SET a constaint then i should use SET
+
+-- Remove the whole column
+ALTER TABLE new_info
+DROP COLUMN people
+
+-- Remove the whole column if it EXISTS 
+ALTER TABLE new_info
+DROP COLUMN IF EXISTS people
