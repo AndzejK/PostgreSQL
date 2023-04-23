@@ -67,3 +67,14 @@ SUM (CASE rental_rate -- counting rows that are equal to 4.99 and return this co
 END) AS premium
 FROM film
 
+SELECT 
+COUNT(CASE rating
+	WHEN 'R' THEN 1 
+END) AS r,
+COUNT(CASE rating
+	WHEN 'PG' THEN 1 
+END) AS pg,
+COUNT(CASE rating
+	WHEN 'PG-13' THEN 1 
+END) AS pg13
+FROM film
