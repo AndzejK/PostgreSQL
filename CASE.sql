@@ -7,12 +7,21 @@ CASE -- No expression
     ELSE some_other_result
 END
 
+-- Real world example
+SELECT customer_id,first_name,last_name, -- CASE statement's col 
+CASE
+	WHEN (customer_id<=100) THEN 'Premium'
+	WHEN (customer_id>100 AND customer_id<200) THEN 'Plus'
+	ELSE 'General'
+END AS status -- I'm changing the name of col
+FROM customer
+
 SELECT a, -- original col
 CASE 
     WHEN a=1 THEN 'one' -- if true result will be return as string 'one' and as a new col, CASE
     WHEN a=2 THEN 'two'
-    ELSE 'other' AS label -- here we rename CASE col to label
-END
+    ELSE 'other' 
+END AS label -- here we rename CASE col to label
 FROM test_tbl
 
 /* CASE expression syntax - in this case it firstly evaluates an expression then compares the result with 
